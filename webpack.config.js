@@ -1,14 +1,14 @@
-var path = require('path');
-var webpack = require('webpack');
-var OpenBrowserPlugin = require('open-browser-webpack-plugin');
+import path from 'path';
+import webpack from 'webpack';
+import OpenBrowserPlugin from 'open-browser-webpack-plugin';
 const PORT = process.env.UI_PORT;
-const DOMAIN = process.env.UI_DOMAIN;
+const HOSTNAME = process.env.UI_HOSTNAME;
 const PROTOCOL = process.env.PROTOCOL;
 
 module.exports = {
   entry: [
     'react-hot-loader/patch',
-    'webpack-dev-server/client?http://localhost:3000',
+    `webpack-dev-server/client?${PROTOCOL}://${HOSTNAME}:${PORT}`,
     'webpack/hot/only-dev-server',
     './src/index'
   ],
@@ -18,7 +18,7 @@ module.exports = {
     publicPath: '/static/'
   },
   plugins: [
-    new OpenBrowserPlugin({ url: `${PROTOCOL}://${DOMAIN}:${PORT}`}),    
+    new OpenBrowserPlugin({ url: `${PROTOCOL}://${HOSTNAME}:${PORT}`}),
     new webpack.HotModuleReplacementPlugin()
   ],
   resolve: {
