@@ -1,6 +1,14 @@
 # cvshare
 Online CV sharing project
 
-# run 'gulp dev' to start the app in development mode
+# Installation
+You will need to have installed nodejs.
+Execute the following in the node command line:
+npm install
 
-# run 'gulp prod' to start the app in production mode
+To run the application:
+gulp dev
+
+# SCSS
+Although scss gets compiled when you run 'gulp dev',
+run 'gulp sass' to compile scss afterward

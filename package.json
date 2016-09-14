@@ -12,7 +12,10 @@
   },
   "keywords": [
     "react",
-    "reactjs"
+    "reactjs",
+    "cv",
+    "redux",
+    "express"
   ],
   "author": "Radu Nedisan",
   "license": "MIT",
@@ -30,14 +33,19 @@
     "eslint-plugin-react": "^5.1.1",
     "gulp": "^3.9.1",
     "gulp-nodemon": "^2.1.0",
+    "gulp-sass": "^2.3.2",
+    "node-sass": "^3.9.3",
     "react-hot-loader": "^3.0.0-beta.2",
+    "sass-loader": "^4.0.2",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
     "immutable": "^3.8.1",
+    "material-ui": "^0.15.4",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
+    "react-tap-event-plugin": "^1.0.0",
     "redux": "^3.6.0"
   }
 }

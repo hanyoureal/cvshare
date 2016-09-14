@@ -2,6 +2,7 @@ import path from 'path';
 import gulp from 'gulp';
 import nodemon from 'gulp-nodemon';
 import webpackInit from './server.js';
+import sass from 'gulp-sass';
 
 gulp.task('server', () => {
   nodemon({
@@ -9,6 +10,16 @@ gulp.task('server', () => {
     ext: 'js'
   });
 });
+
+gulp.task('sass', function () {
+  return gulp.src('./src/sass/**/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./static'));
+});
+
+// gulp.task('sass:watch', function () {
+//   gulp.watch('.src/sass/**/*.scss', ['sass']);
+// });
 
 gulp.task('set-vars', () => {
   process.env.APP_NAME = 'CV Share';
@@ -28,6 +39,6 @@ gulp.task('set-prod', () => {
   process.env.ENV_VAR = 'production';
 });
 
-gulp.task('dev', ['set-dev', 'set-vars', 'server'], () => {
+gulp.task('dev', ['set-dev', 'set-vars', 'server', 'sass'], () => {
   webpackInit();
 });
